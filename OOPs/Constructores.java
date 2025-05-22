@@ -1,7 +1,7 @@
 package OOPs;
 
 class Girls{
-    String name;
+    String name ;
     int age;
 
     Girls(String name, int age){

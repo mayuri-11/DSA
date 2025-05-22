@@ -25,16 +25,17 @@ public class NextGreaterElement {
     public static void ans2(int []arr,int []res){
         Stack<Integer> s =new Stack<>();
         int n = arr.length;
-        arr[n-1] = -1;
+        res[n-1] = -1;
         s.push(arr[n-1]);
 
-        for(int i = n-2; n>=0; i--){
-            while(s.peek() < arr[i] && s.size() > 0){
+        for(int i = n-2; i>=0; i--){
+            while(s.size() > 0 && s.peek() < arr[i]){
                 s.pop();
             }
 
-            if(s.size() == 0) res[i] = -1;
-            else res[i] = s.peek();
+            res[i] = s.isEmpty() ? -1 : s.peek();
+
+            s.push(arr[i]);
         }
 
         for(int i=0; i<res.length;i++){
